@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const mysql = require('mysql2');
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 const pool = mysql.createPool({
     host: '65.21.118.123',
@@ -33,5 +33,5 @@ app.get('/' ,async (req , res)=> {
 
 
   app.listen(port , ()=> {
-    console.log('server is running on 8000');
+    console.log(`server is running on ${port}`);
 })
