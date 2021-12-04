@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
   "author": "Aasim",
@@ -12,8 +11,6 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
-    "pool-mysql": "^2.2.4"
+    "mysql": "^2.00.1"
   }
 }
