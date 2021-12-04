@@ -5,12 +5,9 @@ const port =  process.env.PORT || 8080;
 
 const pool = mysql.createPool({
     host: '65.21.118.123',
-    user: 'specscam_prouser'
+    user: 'specscam_prouser',
     password: 'Mardan8110',
-    database: 'specscam_phones',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+    database: 'specscam_phones'
   });
 
 if(pool){
@@ -22,7 +19,7 @@ if(pool){
 
 app.get('/' ,async (req , res)=> {
     try {
-        pool.query('select * from `phone-specs`' , (err , rows , fields)=>{
+        pool.query('select * from `user`' , (err , rows , fields)=>{
             res.json(err);
           
         })
