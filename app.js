@@ -23,7 +23,8 @@ if(pool){
 app.get('/' ,async (req , res)=> {
     try {
         pool.query('select * from `phone-specs`' , (err , rows , fields)=>{
-            res.json(rows)
+            res.json(err);
+          
         })
         
     } catch (error) {
