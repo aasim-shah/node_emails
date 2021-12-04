@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": ">=16.12.0"
+    "node": ">16.12.0"
   },
   "scripts": {
     "start": "node app.js"
@@ -14,6 +14,7 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   }
 }

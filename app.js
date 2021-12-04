@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const port =  process.env.PORT || 8080;
 
 const pool = mysql.createPool({
-    host: '65.21.118.123',
+    host: '',
     user: 'specscam_prouser',
     password: 'Mardan8110',
     database: 'specscam_phones'
@@ -19,8 +19,10 @@ if(pool){
 
 app.get('/' ,async (req , res)=> {
     try {
-        pool.query('select * from `user`' , (err , rows , fields)=>{
-            res.json(err);
+        pool.query('SELECT * FROM news' , (err , rows , fields)=>{
+          console.log(err);
+          res.json(err);
+          
           
         })
         
