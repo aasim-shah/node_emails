@@ -4,7 +4,7 @@ const app = express()
 const mysql = require('mysql2');
 const port =  process.env.PORT || 8080;
 
-const pool = mysql.createPool({
+const pool = mysql.connect({
     host: '65.21.118.123',
     user: 'specscam_prouser',
     password: 'Mardan8110',
@@ -22,14 +22,9 @@ app.get('/' ,async (req , res)=> {
     try {
         pool.query('SELECT * FROM news' , (err , rows , fields)=>{
           console.log(err);
-          res.json(err);
-          if (err.code === 'ETIMEDOUT') {
-    console.log('My dish error: ', util.inspect(err, { showHidden: true, depth: 2 }));
-}
-          
-          
-        })
+          res.json(err);})
         
+
     } catch (error) {
         res.send('nothing')
     }
