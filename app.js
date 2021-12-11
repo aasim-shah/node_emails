@@ -1,34 +1,36 @@
 const express = require('express')
 const app = express()
-var mysql = require('mysql');
+var nodemailer = require('nodemailer');
 const port =  process.env.PORT || 8080;
 
-var connection = mysql.createConnection({
-    host: '65.21.118.123',
-    user: 'specscam_prouser',
-    password: 'Mardan8110',
-    database: 'specscam_demo'
-  });
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'syedaasimshah1@gmail.com',
+    pass: 'lewani007'
+  }
+});
 
-if(connection){
-    console.log('pool');
-}else{
 
-    console.log('else');
-}
+var mailOptions = {
+  from: 'syedaasimshah1@gmail.com',
+  to: 'syedaasimshah1@gmail.com',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
 
-app.get('/' ,async (req , res)=> {
-    try {
-        connection.query('SELECT * FROM users' , (err , rows , fields)=>{
-          console.log(err);
-          res.json(err);})
-        
 
-    } catch (error) {
-        res.send('nothing')
-    }
+
+app.get('/' , (req , res) => {
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    res.send(error)
+  } else {
+    res.send('Email sent: ' + info.response);
+  }
+});
+
 })
-
 
   app.listen(port , ()=> {
     console.log(`server is running on ${port}`);
