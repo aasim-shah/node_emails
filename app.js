@@ -3,18 +3,16 @@ const app = express()
 var nodemailer = require('nodemailer');
 const port =  process.env.PORT || 8080;
 var transporter = nodemailer.createTransport({
-   host: 'smtp.gmail.com',
-     port: 587,
-     secure: false,
+  service: 'gmail',
   auth: {
     user: 'asimshah8110@gmail.com',
-    pass: 'lewani007'
+    pass: 'Noob@developer'
   }
 });
 
 var mailOptions = {
-  from: 'syedaasimshah1@@gmail.com',
-  to: 'myfriend@yahoo.com',
+  from: 'asimshah8110@gmail.com',
+  to: 'myfriend@gmail.com',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
