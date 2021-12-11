@@ -12,21 +12,36 @@ var transporter = nodemailer.createTransport({
 
 var mailOptions = {
   from: 'asimshah8110@gmail.com',
-  to: 'myfriend@gmail.com',
+  to: 'syedaasimshah1@gmail.com',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
 
 
-app.get('/' ,async (req , res)=> {
- transporter.sendMail(mailOptions, function(error, info){
+app.get('/' , (req , res)=>{
+    
+res.send('okay')
+})
+
+app.post('/' ,async (req , res)=> {
+var mailOptions = {
+  from: 'asimshah8110@gmail.com',
+  to: 'syedaasimshah1@gmail.com',
+  subject: req.body.subject,
+  text: req.body.text
+};
+  
+  
+  await transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     res.send(error);
   console.log('last errror')
   } else {
+    res.send('email send')
     console.log('Email sent: ' + info.response);
   }
 });
+
 })
 
 
