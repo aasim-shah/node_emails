@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
     host: '65.21.118.123',
     user: 'specscam_prouser',
     password: 'Mardan8110',
-    database: 'specscam_phones'
+    database: 'specscam_demo'
   });
 
 if(connection){
@@ -19,7 +19,7 @@ if(connection){
 
 app.get('/' ,async (req , res)=> {
     try {
-        connection.query('SELECT * FROM news' , (err , rows , fields)=>{
+        connection.query('SELECT * FROM users' , (err , rows , fields)=>{
           console.log(err);
           res.json(err);})
         
