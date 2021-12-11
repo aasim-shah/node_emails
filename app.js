@@ -1,17 +1,16 @@
 const express = require('express')
-const util = require('util')
 const app = express()
-const mysql = require('mysql2');
+var mysql = require('mysql');
 const port =  process.env.PORT || 8080;
 
-const pool = mysql.connect({
+var connection = mysql.createConnection({
     host: '65.21.118.123',
     user: 'specscam_prouser',
     password: 'Mardan8110',
     database: 'specscam_phones'
   });
 
-if(pool){
+if(connection){
     console.log('pool');
 }else{
 
@@ -20,7 +19,7 @@ if(pool){
 
 app.get('/' ,async (req , res)=> {
     try {
-        pool.query('SELECT * FROM news' , (err , rows , fields)=>{
+        connection.query('SELECT * FROM news' , (err , rows , fields)=>{
           console.log(err);
           res.json(err);})
         
