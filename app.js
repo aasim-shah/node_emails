@@ -10,25 +10,19 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-var mailOptions = {
-  from: 'asimshah8110@gmail.com',
-  to: 'syedaasimshah1@gmail.com',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
-};
-
 
 app.get('/' , (req , res)=>{
     
 res.send('okay')
 })
 
-app.post('/' ,async (req , res)=> {
+app.use(express.json())
+app.post('/' ,  async (req , res)=> {
 var mailOptions = {
   from: 'asimshah8110@gmail.com',
-  to: 'syedaasimshah1@gmail.com',
-  subject: req.body.subject,
-  text: req.body.text
+  to: req.body.,
+  subject: req.body.sub,
+  text: req.body.text,
 };
   
   
