@@ -2,36 +2,32 @@ const express = require('express')
 const app = express()
 var nodemailer = require('nodemailer');
 const port =  process.env.PORT || 8080;
-
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'syedaasimshah1@gmail.com',
-    pass: 'lewani007'
+    pass: 'yourpassword'
   }
 });
 
-
 var mailOptions = {
-  from: 'syedaasimshah1@gmail.com',
-  to: 'syedaasimshah1@gmail.com',
+  from: 'youremail@gmail.com',
+  to: 'myfriend@yahoo.com',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
 
-
-
-app.get('/' , (req , res) => {
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
-    res.send(error)
+    console.log(error);
   } else {
-    res.send('Email sent: ' + info.response);
+    console.log('Email sent: ' + info.response);
   }
 });
-
+app.get('/' ,async (req , res)=> {
+  res.send('okay')
 })
 
-  app.listen(port , ()=> {
-    console.log(`server is running on ${port}`);
-})
+
+
+app.listen(port)
