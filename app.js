@@ -20,9 +20,9 @@ app.use(express.json())
 app.post('/' ,  async (req , res)=> {
 var mailOptions = {
   from: 'asimshah8110@gmail.com',
-  to: req.body.,
-  subject: req.body.sub,
-  text: req.body.text,
+  to: req.body.tuu ,
+  subject: req.body.sub ,
+  text: req.body.text ,
 };
   
   
