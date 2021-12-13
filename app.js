@@ -1,3 +1,13 @@
+// <img id="blah" alt="your image" width="100" height="100" />
+// <input type="file" name="photo" id="fileinput" />
+// <script>
+// $('#fileinput').change(function() {
+// var url = window.URL.createObjectURL(this.files[0]);
+//  $('#blah').attr('src',url);
+// });
+// </script>
+
+
 const express = require('express')
 const app = express()
 var nodemailer = require('nodemailer');
@@ -37,6 +47,7 @@ var mailOptions = {
 });
 
 })
+
 
 
 
