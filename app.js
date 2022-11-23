@@ -21,7 +21,7 @@ res.send('okay')
 app.use(express.json())
 app.post('/' ,  async (req , res)=> {
 var mailOptions = {
-  from: 'asimshah8110@gmail.com',
+  from: 'youremail@gmail.com',
   to: req.body.tuu ,
   subject: req.body.sub ,
   text: req.body.text ,
